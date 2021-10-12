@@ -41,6 +41,7 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener,M
 	public static Spritesheet spritePlayer;
     public static Spritesheet spriteFloor;
     public static Spritesheet spriteEnemy;
+    public static Spritesheet spriteItem;
 	public static World world;
 	public static Player player;
 	
@@ -58,6 +59,7 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener,M
 		spritePlayer = new Spritesheet("/mario.png");
 		spriteFloor = new Spritesheet("/tileFloor.png");
 		spriteEnemy = new Spritesheet("/enemies.png");
+		spriteItem = new Spritesheet("/items.png");
 		player = new Player(0,0,16,16,1,Entity.PLAYER_SPRITE_RIGHT[0]);
 		entities = new ArrayList<Entity>();
 		world = new World("/level1.png");

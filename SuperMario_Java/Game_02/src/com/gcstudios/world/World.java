@@ -5,8 +5,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import com.gcstudios.entities.Coin;
 import com.gcstudios.entities.Enemy;
 import com.gcstudios.entities.Entity;
+import com.gcstudios.itens.Mushroom;
 import com.gcstudios.main.Game;
 
 public class World {
@@ -47,7 +49,14 @@ public class World {
 						//Enemy
                         Enemy enemy = new Enemy(xx*16,yy*16, 16,27, 1, Entity.ENEMY_KOOPA_SPRITE_LEFT[0]);
                         Game.entities.add(enemy);
-					}
+					}else if(pixelAtual == 0xffFFD800){
+                        Coin coin = new Coin(xx*16,yy*16, 16,27, 1, Entity.COIN_SPIRTE[0]);
+                        Game.entities.add(coin);
+                    }else if(pixelAtual == 0xffFF6A00){
+                        Mushroom mush = new Mushroom(xx*16,yy*16, 16,27, 1, Entity.MUSHROOMRED_SPIRTE);
+                        Game.entities.add(mush);
+                    }
+
 				}
 			}
 		} catch (IOException e) {

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-import java.awt.*;
+// import java.awt.*;
 
 import com.gcstudios.main.Game;
 import com.gcstudios.world.Camera;
@@ -17,19 +17,26 @@ import com.gcstudios.world.World;
 
 public class Entity {
 	
-    // player
+    // player pequeno
     public static BufferedImage[] PLAYER_SPRITE_RIGHT = {Game.spritePlayer.getSprite(209, 0,14,27), Game.spritePlayer.getSprite(328, 0,15,19)};
     public static BufferedImage[] PLAYER_SPRITE_JUMP_RIGHT = {Game.spritePlayer.getSprite(208, 39,14,20),Game.spritePlayer.getSprite(248, 40,16,20)};
 
     public static BufferedImage[] PLAYER_SPRITE_LEFT = {Game.spritePlayer.getSprite(169, 0,14,20),Game.spritePlayer.getSprite(49, 0,15,19) };
     public static BufferedImage[] PLAYER_SPRITE_JUMP_LEFT = {Game.spritePlayer.getSprite(168, 39,14,20),Game.spritePlayer.getSprite(128, 40,14,20)};
     
-
+    // Player grande 
+    public static BufferedImage[] PLAYERBIG_SPRITE_RIGHT = {Game.spritePlayer.getSprite(208, 76,15,28), Game.spritePlayer.getSprite(328, 0,15,19)};
     // enemy
     public static BufferedImage[] ENEMY_KOOPA_SPRITE_LEFT = {Game.spriteEnemy.getSprite(132,0,16,27),Game.spriteEnemy.getSprite(92,0,16,27),Game.spriteEnemy.getSprite(52,0,16,27)};
     public static BufferedImage[] ENEMY_KOOPA_SPRITE_RIGHT = {Game.spriteEnemy.getSprite(51,316,16,27),Game.spriteEnemy.getSprite(91,317,16,27),Game.spriteEnemy.getSprite(131,316,16,27)};
 
     
+
+    // coin
+    public static BufferedImage[] COIN_SPIRTE = {Game.spriteItem.getSprite(63,177,12,16),Game.spriteItem.getSprite(78,177,8,16),Game.spriteItem.getSprite(89,177,7,16),Game.spriteItem.getSprite(98,177,8,17)};
+
+    // Mushroom
+    public static BufferedImage MUSHROOMRED_SPIRTE = Game.spriteItem.getSprite(5,4,16,16);
 
 	protected double x;
 	protected double y;
@@ -132,6 +139,9 @@ public class Entity {
 			}
 		}
 	}
+
+
+   
 	
 	public static boolean isColidding(Entity e1,Entity e2){
 		Rectangle e1Mask = new Rectangle(e1.getX(),e1.getY(),e1.getWidth(),e1.getHeight());
@@ -142,8 +152,8 @@ public class Entity {
 	
 	public void render(Graphics g) {
 		g.drawImage(sprite,this.getX() - Camera.x,this.getY() - Camera.y,null);
-		g.setColor(Color.red);
-		g.fillRect(this.getX() + 8 - Camera.x,this.getY() + 8 - Camera.y,8,8);
+		// g.setColor(Color.red);
+		// g.fillRect(this.getX() + 8 - Camera.x,this.getY() + 8 - Camera.y,8,8);
 	}
 	
 }

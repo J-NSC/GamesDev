@@ -1,7 +1,6 @@
 package com.gcstudios.entities;
 
 import java.awt.Graphics;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import com.gcstudios.world.Camera;
@@ -11,7 +10,7 @@ import com.gcstudios.world.World;
 
 public class Enemy extends Entity{
 	
-
+    public int vida = 1;
     private boolean right= true,left= false;
 
     private int frameAnimation =0;
@@ -34,20 +33,40 @@ public class Enemy extends Entity{
             y+=gravity;
         }
 
-        if(right && World.isFree((int)(x+speed),(int)y)){
-            x+=speed;
+        if(right){
+          
+          if(World.isFree((int)(x+speed),(int)y)){
+            
+                x+=speed;
 
-            if(World.isFree((this.getX()+16), this.getY()+1)){
+                if(World.isFree((this.getX()+16), this.getY()+1)){
+                    right = false;
+                    left = true;
+                }
+            }else{
                 right = false;
                 left = true;
             }
-        }else if(left && World.isFree((int)(x-speed),(int)y)){
-            x-=speed;
+        }
 
-            if(World.isFree((this.getX()-16), this.getY()+1)){
+        if(left ){
+            if(World.isFree((int)(x-speed),(int)y)){
+                x-=speed;
+
+                if(World.isFree((this.getX()-16), this.getY()+1)){
+                    right = true;
+                    left = false;
+                }
+            }else{
                 right = true;
-                left = false;
+                left = false;   
             }
+        }
+
+
+
+        if(vida == 0){
+            // mudar os sprites 
         }
 		/*
 		if(path == null || path.size() == 0) {
@@ -89,8 +108,6 @@ public class Enemy extends Entity{
         }else if(left){
             g.drawImage(Entity.ENEMY_KOOPA_SPRITE_LEFT[curSprite], this.getX()- Camera.x,(this.getY()-Camera.y) - 11,null); 
         }
-
-
         
 	}
 	
