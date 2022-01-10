@@ -10,7 +10,6 @@ public class Spritesheet {
 	private BufferedImage spritesheet;
 	
 	public Spritesheet(String path)
-    
 	{
 		try {
 			spritesheet = ImageIO.read(getClass().getResource(path));
